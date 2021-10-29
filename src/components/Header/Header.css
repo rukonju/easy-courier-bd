@@ -1,0 +1,21 @@
+.nav-links a{
+    text-decoration: none;
+    color: gainsboro;
+    margin-right: 40px;
+    margin-left: 8px;
+}
+.dropdown-links a{
+    text-decoration: none;
+    color: gainsboro;
+}
+
+.display-none{
+    display: none;
+}
+
+@media only screen and (max-width:988px) {
+    .logo{
+        height: 40px;
+    }
+    
+}
