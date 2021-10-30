@@ -9,7 +9,7 @@ import MyOrder from './components/MyOrder/MyOrder';
 import Register from './components/Register/Register';
 import Services from './components/Services/Services';
 import AuthProvider from './context/AuthProvider';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import './App.css';
 import Booking from './components/Booking/Booking';
 
@@ -27,14 +27,14 @@ function App() {
             <Route path='/home'>
               <Home></Home>
             </Route>
+            <Route path='/services'>
+              <Services></Services>
+            </Route>
             <Route path='/login'>
               <Login></Login>
             </Route>
             <Route path='/register'>
               <Register></Register>
-            </Route>
-            <Route path='/services'>
-              <Services></Services>
             </Route>
             <PrivateRoute path='/service/booking/:id'>
               <Booking></Booking>

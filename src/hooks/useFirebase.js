@@ -14,14 +14,9 @@ const useFirebase = () =>{
     const [isLoading, setIsLoading] = useState(true)
 
     const signInWithGoogle = () =>{
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
         
-        .then((result) => {
-            setUser(result.user);
-        })
-        .catch((error) => {
-            setError(error)
-        })
+        
         .finally(() => { setIsLoading(false) });
 
     };

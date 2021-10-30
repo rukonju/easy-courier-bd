@@ -1,11 +1,27 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import './Login.css';
 
 const Login = () => {
-    const {signInWithGoogle,user} = useAuth()
-    console.log(user)
+    const {signInWithGoogle,user} = useAuth();
+    const history=useHistory();
+    const location=useLocation();
+    const ridirect_url=location?.state?.from || "/home";
+
+    const handleGoogleSignIn =() =>{
+        signInWithGoogle()
+        .then((result) => {
+            if(result.user){
+                history.push(ridirect_url);
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         console.log(data)
@@ -19,7 +35,7 @@ const Login = () => {
                 <input type="submit" value="LOGIN" disabled />
             </form>
             <div>
-                <button onClick={() =>signInWithGoogle()}>Sign In With Google</button>
+                <button onClick={handleGoogleSignIn}>Sign In With Google</button>
             </div>
         </div>
         
