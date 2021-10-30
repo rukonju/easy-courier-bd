@@ -2,8 +2,23 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 
 const AddService = () => {
-    const { register, handleSubmit} = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset} = useForm();
+    const onSubmit = data =>{
+        fetch('http://localhost:5000/services',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(result=>{
+            if(result.insertedId){
+                alert('The service is added successfully');
+                reset();
+            }
+        })
+    };
     return (
         <div className="form">
             <h1>Add service</h1>
