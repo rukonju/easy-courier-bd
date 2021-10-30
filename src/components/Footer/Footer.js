@@ -10,8 +10,9 @@ const Footer = () => {
     display:"block"
   };
     return (
-        <footer className="p-5 bg-dark">
+        <footer className=" bg-dark">
           <Container>
+          <hr style={{height:'4px'}} className="text-white bg-light"/>
             <Row>
               <Col sm={3}>
                 <div className="my-4" >

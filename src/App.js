@@ -10,8 +10,9 @@ import Register from './components/Register/Register';
 import Services from './components/Services/Services';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import './App.css';
 import Booking from './components/Booking/Booking';
+import './App.css';
+
 
 function App() {
 

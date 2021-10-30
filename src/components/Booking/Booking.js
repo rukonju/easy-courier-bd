@@ -10,7 +10,7 @@ const Booking = () => {
     const [isBook, setIsBook] = useState(false)
     const {id} = useParams();
     useEffect(()=>{
-        const url =`http://localhost:5000/services/${id}`
+        const url =`https://fathomless-eyrie-01187.herokuapp.com/services/${id}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setService(data))
@@ -29,7 +29,7 @@ const Booking = () => {
         }
        
         console.log(data)
-        fetch('http://localhost:5000/orders',{
+        fetch('https://fathomless-eyrie-01187.herokuapp.com/orders',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -50,18 +50,19 @@ const Home = () => {
                 <h1 className="text-light">Our Acheivements</h1>
                 <Row  className="text-center">
                     <Col md={6} sm={6} xs={12}> 
-                        <h1 className="text-light bg-secondary m-2">branchs</h1>
+                        <h1 className="text-light bg-secondary m-2">64 <br /> Districts Coverage</h1>
                     </Col>
                     <Col md={6} sm={6} xs={12}>
-                        <h1 className="text-light bg-secondary m-2">branchs</h1>
+                        <h1 className="text-light bg-secondary m-2">1,000 <br /> Delivery Agents</h1>
                     </Col>
                     <Col md={6} sm={6} xs={12}>
-                        <h1 className="text-light bg-secondary m-2 ">branchs</h1>
+                        <h1 className="text-light bg-secondary m-2 ">25,000 <br /> Registered Merchants</h1>
                     </Col>
                     <Col md={6} sm={6} xs={12}>
-                     <h1 className="text-light bg-secondary m-2">branchs</h1>
+                     <h1 className="text-light bg-secondary m-2">2.5 Milions <br /> Parcels Delivered</h1>
                     </Col>
                 </Row>
+                <hr style={{height:'4px'}} className="text-white bg-light"/>
             </Container>
         </div>
     );

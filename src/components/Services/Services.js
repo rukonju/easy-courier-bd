@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Placeholder, Row } from 'react-bootstrap';
 import Service from '../Service/Service';
 
 const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() =>{
-        fetch('http://localhost:5000/services')
+        fetch('https://fathomless-eyrie-01187.herokuapp.com/services')
         .then(res=>res.json())
         .then(data=>setServices(data))
     },[])
     return (
+        services.length?
         <div>
             <Container>
             <h1 className="text-light text-center">Our Services</h1>
@@ -20,6 +21,16 @@ const Services = () => {
                     }
                 </Row>
             </Container>
+        </div>:
+        <div>
+            <Placeholder bg="secondary" animation="glow">
+        <Placeholder xs={6} />
+      </Placeholder>
+      <Placeholder animation="glow">
+        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+        <Placeholder xs={6} /> <Placeholder xs={8} />
+      </Placeholder>
+      <Placeholder.Button variant="secondary" xs={6} />
         </div>
     );
 };
