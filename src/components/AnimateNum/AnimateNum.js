@@ -10,7 +10,7 @@ const AnimateNum = () => {
                 {
                     numbers.map(number=><Col key={number} md={6} sm={6} xs={12}>
                         <div className=" bg-secondary rounded-3 m-2 text-warning">
-                            <AnimatedNumber component="text" value={number}
+                            <AnimatedNumber component="span" value={number}
                                 style={{
                                 transition: '0.8s ease-out',
                                 fontSize: 48,

@@ -11,8 +11,9 @@ import Services from './components/Services/Services';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Booking from './components/Booking/Booking';
-import './App.css';
 import Contact from './components/Contact/Contact';
+import Page404 from './components/Page404/Page404'
+import './App.css';
 
 
 function App() {
@@ -54,9 +55,12 @@ function App() {
             <PrivateRoute path='/admin/manageOrders'>
               <ManageOrder></ManageOrder>
             </PrivateRoute>
-            <Route>
+            <Route path='/contact'>
               <Contact></Contact>
               <Footer></Footer>
+            </Route>
+            <Route path='*'>
+              <Page404></Page404>
             </Route>
           </Switch>
           

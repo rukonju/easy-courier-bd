@@ -5,7 +5,6 @@ import useAuth from '../../hooks/useAuth';
 const MyOrder = () => {
     const [orders,setOrders] = useState([]);
     const {user} = useAuth()
-    console.log(orders)
     
     useEffect(() =>{
         fetch('https://fathomless-eyrie-01187.herokuapp.com/orders')
@@ -18,6 +17,24 @@ const MyOrder = () => {
     if(!orders.length){
         return <h1 className="text-light text-center my-4">You have not book any service yet.</h1>
     }
+
+    const handleDelete = id =>{
+        const prossed = window.confirm('are you sure')
+        if(prossed){
+            const url = `https://fathomless-eyrie-01187.herokuapp.com/orders/${id}`
+            fetch(url,{
+                method: 'DELETE'
+            })
+            .then(res=>res.json())
+            .then(result=>{
+                if(result.deletedCount>0){
+                    const remainingOrders = orders.filter(order=>order._id !==id);
+                    setOrders(remainingOrders);   
+                }
+            })
+        }
+        
+    };
 
 
     return (
@@ -36,7 +53,7 @@ const MyOrder = () => {
                                     <h2 style={{textOverflow: 'ellipsis', width:"100%"}}>{order?.service?.title}</h2>
                                     <p>{order?.date}</p>
                                     <p>{order?.status}</p>
-                                    <Button style={{position:'absolute', bottom:'1%',right:'1%'}} className="text-right " variant="secondary">Cencel</Button>
+                                    <Button onClick={() =>handleDelete(order._id)} style={{position:'absolute', bottom:'1%',right:'1%'}} className="text-right " variant="secondary">Cencel</Button>
                                 </div>
                             </Col>
                         </Row>

@@ -29,7 +29,7 @@ const ManageOrder = () => {
     };
 
     const handleUpdate = id =>{
-        const doc = {status:'approved'}
+        const doc = {status:'Approved'}
         const url = `https://fathomless-eyrie-01187.herokuapp.com/orders/${id}`
             fetch(url,{
                 method: 'PUT',
@@ -40,9 +40,10 @@ const ManageOrder = () => {
             })
             .then(res=>res.json())
             .then(result=>{
-                if(result.modifiedCount>0){
-                    const modifiedOrder = orders.find(order=>order._id===id);
-                    modifiedOrder.status='approved';
+                if(result.modifiedCount>0){ 
+                    alert('Order is approved')
+                    const updateStatus = orders.find(order=>order._id ===id);
+                    updateStatus.status='Approved';
                 }
             })
     }
