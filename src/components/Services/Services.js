@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Placeholder, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import Service from '../Service/Service';
 
 const Services = () => {
@@ -21,17 +21,8 @@ const Services = () => {
                     }
                 </Row>
             </Container>
-        </div>:
-        <div>
-            <Placeholder bg="secondary" animation="glow">
-        <Placeholder xs={6} />
-      </Placeholder>
-      <Placeholder animation="glow">
-        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
-        <Placeholder xs={6} /> <Placeholder xs={8} />
-      </Placeholder>
-      <Placeholder.Button variant="secondary" xs={6} />
-        </div>
+        </div>: <div className="spinner"><Spinner animation="border" variant="danger" /></div>
+        
     );
 };
 

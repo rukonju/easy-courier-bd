@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Placeholder, Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import deleteBtn from '../../../images/trash-2 9.png'
 
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
-    console.log(orders)
-    const [updateStatus, setUpdateStatus] = useState(false);
     useEffect(() =>{
         fetch('https://fathomless-eyrie-01187.herokuapp.com/orders')
         .then(res=>res.json())
@@ -23,7 +21,7 @@ const ManageOrder = () => {
             .then(result=>{
                 if(result.deletedCount>0){
                     const remainingOrders = orders.filter(order=>order._id !==id);
-                    setOrders(remainingOrders);
+                    setOrders(remainingOrders);   
                 }
             })
         }
@@ -45,22 +43,12 @@ const ManageOrder = () => {
                 if(result.modifiedCount>0){
                     const modifiedOrder = orders.find(order=>order._id===id);
                     modifiedOrder.status='approved';
-
-                    setUpdateStatus(true)
                 }
             })
     }
     if(!orders.length){
-        return <div>
-            <Placeholder animation="glow">
-        <Placeholder xs={6} />
-      </Placeholder>
-      <Placeholder animation="glow">
-        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
-        <Placeholder xs={6} /> <Placeholder xs={8} />
-      </Placeholder>
-      <Placeholder.Button variant="primary" xs={6} />
-        </div>
+        return <h1 className=" text-center text-light my-4">No Order Found</h1>
+                
     }
     return (
         <Container className="text-light">
@@ -89,7 +77,7 @@ const ManageOrder = () => {
                                     <td>{order.status}</td>
                                     <td>
                                         <img style={{cursor:'pointer'}} onClick={()=>handleDelete(order?._id)} src={deleteBtn} alt="" width="30px" />
-                                        <button onClick={()=>handleUpdate(order?._id)}>{updateStatus?'':'Approve'}</button>
+                                        <button onClick={()=>handleUpdate(order?._id)}>Approve</button>
                                     </td>
                             </tr>)
                     }

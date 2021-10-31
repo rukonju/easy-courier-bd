@@ -1,0 +1,20 @@
+.service:hover .image img{
+    transform: scale(1.3);
+    transition-duration: 1s;  
+}
+
+.image img{
+    transition: 1s ease;
+}
+
+.image{
+       width: 100%;
+       overflow: hidden;   
+}
+.spinner{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

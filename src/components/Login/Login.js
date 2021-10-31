@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import { Google } from 'react-bootstrap-icons';
 import './Login.css';
 
 const Login = () => {
@@ -35,7 +36,7 @@ const Login = () => {
                 <input type="submit" value="LOGIN" disabled />
             </form>
             <div>
-                <button onClick={handleGoogleSignIn}>Sign In With Google</button>
+                <button onClick={handleGoogleSignIn}><Google size={25}/><span className="ms-4">Sign In With Google</span></button>
             </div>
         </div>
         

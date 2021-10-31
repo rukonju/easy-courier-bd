@@ -15,6 +15,9 @@ const MyOrder = () => {
             setOrders(myOrders)
         })
     },[user.email]);
+    if(!orders.length){
+        return <h1 className="text-light text-center my-4">You have not book any service yet.</h1>
+    }
 
 
     return (
