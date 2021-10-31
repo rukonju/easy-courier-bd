@@ -12,6 +12,7 @@ import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Booking from './components/Booking/Booking';
 import './App.css';
+import Contact from './components/Contact/Contact';
 
 
 function App() {
@@ -24,12 +25,15 @@ function App() {
           <Switch>
             <Route exact path='/'>
               <Home></Home>
+              <Footer></Footer>
             </Route>
             <Route path='/home'>
               <Home></Home>
+              <Footer></Footer>
             </Route>
             <Route path='/services'>
               <Services></Services>
+              <Footer></Footer>
             </Route>
             <Route path='/login'>
               <Login></Login>
@@ -39,6 +43,7 @@ function App() {
             </Route>
             <PrivateRoute path='/service/booking/:id'>
               <Booking></Booking>
+              <Footer></Footer>
             </PrivateRoute>
             <PrivateRoute path='/myOrders'>
               <MyOrder></MyOrder>
@@ -49,8 +54,12 @@ function App() {
             <PrivateRoute path='/admin/manageOrders'>
               <ManageOrder></ManageOrder>
             </PrivateRoute>
+            <Route>
+              <Contact></Contact>
+              <Footer></Footer>
+            </Route>
           </Switch>
-          <Footer></Footer>
+          
         </Router>
       </AuthProvider>
     </div>

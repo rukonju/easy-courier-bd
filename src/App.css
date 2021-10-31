@@ -4,6 +4,9 @@
 .App {
   font-family: 'Oxygen', sans-serif;
   font-family: 'Varela Round', sans-serif;
-  background-color: rgb(33,37,41);
+  background-color: rgb(38, 41, 44);
+}
+html{
+  background-color:rgb(38, 41, 44) ;
 }
 

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Placeholder, Table } from 'react-bootstrap';
+import deleteBtn from '../../../images/trash-2 9.png'
 
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
+    console.log(orders)
     const [updateStatus, setUpdateStatus] = useState(false);
     useEffect(() =>{
         fetch('https://fathomless-eyrie-01187.herokuapp.com/orders')
@@ -41,6 +43,9 @@ const ManageOrder = () => {
             .then(res=>res.json())
             .then(result=>{
                 if(result.modifiedCount>0){
+                    const modifiedOrder = orders.find(order=>order._id===id);
+                    modifiedOrder.status='approved';
+
                     setUpdateStatus(true)
                 }
             })
@@ -59,6 +64,7 @@ const ManageOrder = () => {
     }
     return (
         <Container className="text-light">
+            <h1 className=" text-center text-light my-4">Manage All Customer’s Order</h1>
             <Table striped bordered hover variant="dark" responsive="lg">
                 <thead>
                     <tr>
@@ -77,13 +83,13 @@ const ManageOrder = () => {
                             <tr key={order._id} order={order}>
                                     <td>{orders.indexOf(order)+1}</td>
                                     <td>{order.name}</td>
-                                    <td>{order.email}</td>
-                                    <td>{order.service}</td>
+                                    <td>{order.contactEmail}</td>
+                                    <td>{order?.service?.title}</td>
                                     <td>{order.date}</td>
-                                    <td>{updateStatus?'approved':order.status}</td>
+                                    <td>{order.status}</td>
                                     <td>
-                                        <button onClick={()=>handleDelete(order?._id)}>Delete</button>
-                                        <button onClick={()=>handleUpdate(order?._id)}>Approve</button>
+                                        <img style={{cursor:'pointer'}} onClick={()=>handleDelete(order?._id)} src={deleteBtn} alt="" width="30px" />
+                                        <button onClick={()=>handleUpdate(order?._id)}>{updateStatus?'':'Approve'}</button>
                                     </td>
                             </tr>)
                     }

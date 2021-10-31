@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
 const MyOrder = () => {
     const [orders,setOrders] = useState([]);
+    const {user} = useAuth()
+    console.log(orders)
     
     useEffect(() =>{
         fetch('https://fathomless-eyrie-01187.herokuapp.com/orders')
         .then(res=>res.json())
-        .then(data=>setOrders(data))
-    },[]);
+        .then(data=>{
+            const myOrders = data.filter(order=>order.userEmail===user.email);
+            setOrders(myOrders)
+        })
+    },[user.email]);
 
-    useEffect(()=>{
-    orders.forEach(order => {
-            const url =`https://fathomless-eyrie-01187.herokuapp.com/services/${order?.serviceId}`
-            fetch(url)
-            .then(res=>res.json())
-            .then(data=> console.log(data))
-        });
-    },[orders])
 
     return (
-        <div>
+        <Container>
+            <h1 className="text-light text-center my-4">My Orders</h1>
+            <Row>
+
             {
-                orders.map(order=><div className="text-light" key={order._id}>
-                    <h1 >{order?.name}</h1>
-                    <span>{order?.status}</span>
-                </div>)
-            }
+                orders.map(order=><Col  key={order._id} md={6} style={{justifyContent: 'space-around'}}>
+                        <Row className="m-1">
+                            <Col md={12} lg={6} className="p-0">
+                                <img src={order?.service?.photoUrl} alt="" width="100%" />
+                            </Col>
+                            <Col style={{position:'relative'}} md={12} lg={6} className="text-light bg-info">
+                                <div className="text-dark bg-info">
+                                    <h2 style={{textOverflow: 'ellipsis', width:"100%"}}>{order?.service?.title}</h2>
+                                    <p>{order?.date}</p>
+                                    <p>{order?.status}</p>
+                                    <Button style={{position:'absolute', bottom:'1%',right:'1%'}} className="text-right " variant="secondary">Cencel</Button>
+                                </div>
+                            </Col>
+                        </Row>
             
-        </div>
+                    </Col>)
+            }
+            </Row>
+            
+        </Container>
     );
 };
 

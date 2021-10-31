@@ -19,8 +19,9 @@ const Booking = () => {
     const onSubmit = data =>{
         if(!data.status){
             data.status='pending';
-            data.userEmail=user.email;
-            data.serviceId=service._id;
+            data.userEmail=user?.email;
+            data.serviceId=service?._id;
+            data.service=service;
             const date =new Date().toDateString();
             data.date=date.slice(4);
             if(!data?.name){

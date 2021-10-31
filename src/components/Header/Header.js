@@ -27,8 +27,12 @@ const Header = () => {
                             Admin
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
-                            <NavLink to='/admin/addService'>Add New Service</NavLink><br />
-                            <NavLink to='/admin/manageOrders'>Manage Orders</NavLink>
+                            <Dropdown.Item>
+                                <NavLink to='/admin/addService'>Add New Service</NavLink>
+                            </Dropdown.Item>
+                            <Dropdown.Item>
+                                <NavLink to='/admin/manageOrders'>Manage Orders</NavLink>
+                            </Dropdown.Item>  
                         </Dropdown.Menu>
                     </Dropdown>
                         {

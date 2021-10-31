@@ -11,10 +11,10 @@ const Footer = () => {
   };
     return (
         <footer className=" bg-dark">
-          <Container>
           <hr style={{height:'4px'}} className="text-white bg-light"/>
+          <Container>
             <Row>
-              <Col sm={3}>
+              <Col sm={4}>
                 <div className="my-4" >
                     <div className="mb-4">
                       <Facebook className="me-4" color="gainsboro" size={24}/> 
@@ -22,13 +22,13 @@ const Footer = () => {
                       <Twitter className="me-4" color="gainsboro" size={24}/>
                     </div>
                     <p className="text-light">Contact: 34908834345</p>
-                    <p className="text-light">Email: universityadcare@gmail.com</p>
+                    <p className="text-light">Email: easyqourier@gmail.com</p>
                     <p className="text-light">Location: Sherpur Town,Sherpur,Mymensingh.</p>
                   </div>
               </Col>
-              <Col sm={3}>
+              <Col sm={4}>
                     <div className="my-4" >
-                      <h3 className="text-light">UAC</h3>
+                      <h3 className="text-light">Easy Courier</h3>
                       <div>
                           <Navlink style={style} to="/">Privecy policy</Navlink>
                           <Navlink style={style} to="/">Who We Are</Navlink>
@@ -36,25 +36,17 @@ const Footer = () => {
                       </div>
                     </div>
               </Col>
-              <Col sm={3}>
+              <Col sm={4}>
                     <div className="my-4" >
                         <h3 className="text-light">Most Popular</h3>
-                        <Navlink style={style} to="/">Spoken English</Navlink>
-                        <Navlink style={style} to="/">DU A Unit Preperation</Navlink>
-                        <Navlink style={style} to="/">Engineering Preperation</Navlink>
-                        <Navlink style={style} to="/">Web Development</Navlink>
-                    </div>
-              </Col>
-              <Col sm={3}>
-                    <div className="my-4" >
-                      <h3 className="text-light">Others</h3>
-                      <Navlink style={style} to="/">Study</Navlink>
-                      <Navlink style={style} to="/">Skills</Navlink>
-                      <Navlink style={style} to="/">Books Store</Navlink>
+                        <Navlink style={style} to="/">Home to Home Delivery</Navlink>
+                        <Navlink style={style} to="/">Document Delivery</Navlink>
+                        <Navlink style={style} to="/">Ware House</Navlink>
+                        <Navlink style={style} to="/">Special Delivery</Navlink>
                     </div>
               </Col>
             </Row>
-            <p className="text-center text-light">Copyright © 2020-2021 UAC All Right Reserved.</p>
+            <p className="text-center text-light">Copyright © 2020-2021 Easy Qourier All Right Reserved.</p>
           </Container>
         </footer>
     );

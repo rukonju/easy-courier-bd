@@ -13,7 +13,7 @@ const Banner = () => {
                 <h1>Welcome to <br /> 
                     <span>Easy Courier Bangladesh</span>
                 </h1>
-                <Button variant="outline-light" size="lg">Contact Now</Button>
+                <Button variant="primary" size="lg">Contact Now</Button>
             </div>
                     
         </div>

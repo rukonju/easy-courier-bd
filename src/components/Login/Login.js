@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import './Login.css';
 
 const Login = () => {
-    const {signInWithGoogle,user} = useAuth();
+    const {signInWithGoogle} = useAuth();
     const history=useHistory();
     const location=useLocation();
     const ridirect_url=location?.state?.from || "/home";
